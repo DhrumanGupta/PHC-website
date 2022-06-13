@@ -64,7 +64,8 @@ const Alumni: NextPage<{ data: MetaData[] }> = ({ data }) => (
 
     <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-2">
       {data.map((blogData) => (
-        <Card className="!m-0">
+        // @ts-ignore
+        <Card className="!m-0" key={blogData.slug}>
           <h3 className="text-lg lg:text-xl">{blogData.title}</h3>
           <p>{blogData.description}</p>
           <span className="flex gap-3 mt-3">
@@ -73,6 +74,7 @@ const Alumni: NextPage<{ data: MetaData[] }> = ({ data }) => (
                 href={blogData.source}
                 target="_blank"
                 className="h-6 w-auto !text-black"
+                rel="noreferrer"
               >
                 <AiFillGithub className="h-full w-full duration-100 hover:text-red-500 hover:cursor-pointer" />
               </a>
@@ -82,6 +84,7 @@ const Alumni: NextPage<{ data: MetaData[] }> = ({ data }) => (
                 href={blogData.demo}
                 target="_blank"
                 className="h-6 w-auto !text-black"
+                rel="noreferrer"
               >
                 <AiOutlineEye className="h-full w-full duration-100 hover:text-red-500 hover:cursor-pointer" />
               </a>
