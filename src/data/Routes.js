@@ -14,6 +14,10 @@ export const navbarRoutes = [
     route: '/alumni',
   },
   {
+    name: 'Gallery',
+    route: '/gallery',
+  },
+  {
     name: 'Join',
     route: '/join',
   },

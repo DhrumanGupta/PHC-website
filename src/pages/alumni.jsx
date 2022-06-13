@@ -1,12 +1,14 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Card from '../components/UI/Card'
 import styles from '../styles/Alumni.module.css'
 import MetaDecorator from '../components/MetaDecorator'
-import {alumni} from '../data/Alumni'
-import {imageDir} from "../data/constants";
+import { alumni } from '../data/Alumni'
+import { imageDir } from '../data/constants'
 
-const AlumniCard = ({name, link, role, year}) => {
-  const [image, setImage] = useState(`${imageDir}/alumni/${year}/${name.toLowerCase().replace(/ /g, '_')}.jpg`);
+const AlumniCard = ({ name, link, role, year }) => {
+  const [image, setImage] = useState(
+    `${imageDir}/alumni/${year}/${name.toLowerCase().replace(/ /g, '_')}.jpg`
+  )
 
   const onImageError = () => {
     setImage(`${imageDir}/common/unknown_person.jpg`)
@@ -21,7 +23,7 @@ const AlumniCard = ({name, link, role, year}) => {
       key={name}
     >
       <div className={styles.image}>
-        <img alt={name} src={image} onError={onImageError}/>
+        <img alt={name} src={image} onError={onImageError} />
       </div>
 
       <p className={styles.name}>{name}</p>
@@ -35,7 +37,7 @@ const Alumni = () => (
     <MetaDecorator
       title={'Alumni'}
       description={
-        "PSN Hack Club was founded in 2019. View all it's alumni here!"
+        'PSN Hack Club was founded in 2019. View all its alumni here!'
       }
     />
 
@@ -50,9 +52,10 @@ const Alumni = () => (
         <p className={styles.yearHeader}>{year.year}</p>
         <div className={styles.alumniContainer}>
           {year.members.map((member) => (
-            <AlumniCard {...member}
-                        year={year.year.toString().replace(/ /g, '')}
-                        key={member.name}
+            <AlumniCard
+              {...member}
+              year={year.year.toString().replace(/ /g, '')}
+              key={member.name}
             />
           ))}
         </div>
