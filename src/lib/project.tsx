@@ -5,9 +5,9 @@ const contentPath = path.join(process.cwd(), 'content', 'gallery')
 
 // Get all the slugs
 const getAllProjectSlugs = async (): Promise<string[]> => {
-  return (await fs.promises.readdir(contentPath)).map((x) =>
-    x.replace(/\.json$/, '')
-  )
+  return (await fs.promises.readdir(contentPath))
+    .filter((x) => x.endsWith('.json'))
+    .map((x) => x.replace(/\.json$/, ''))
 }
 
 interface FrontMatter extends Omit<RawFrontMatter, 'date'> {
