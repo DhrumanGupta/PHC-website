@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-const contentPath = path.join(process.cwd(), 'src', 'content', 'gallery')
+const contentPath = path.join(process.cwd(), 'content', 'gallery')
 
 // Get all the slugs
 const getAllProjectSlugs = async (): Promise<string[]> => {
