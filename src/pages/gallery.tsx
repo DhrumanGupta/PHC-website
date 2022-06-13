@@ -2,9 +2,7 @@ import { GetStaticProps, NextPage } from 'next'
 import MetaDecorator from '../components/MetaDecorator'
 import { getAllProjectData } from '../lib/project'
 import type { MetaData } from '../lib/project'
-import moment from 'moment'
 import styles from '../styles/Alumni.module.css'
-import Link from 'next/link'
 import Card from '../components/UI/Card'
 import { AiFillGithub, AiOutlineEye } from 'react-icons/ai'
 
@@ -16,36 +14,8 @@ export const getStaticProps: GetStaticProps<{ data: MetaData[] }> = async (
     props: {
       data: postData,
     },
-    revalidate: 3600, // 1 hour
   }
 }
-
-// const AlumniCard = ({ name, link, role, year }) => {
-//   const [image, setImage] = useState(
-//     `${imageDir}/alumni/${year}/${name.toLowerCase().replace(/ /g, '_')}.jpg`
-//   )
-
-//   const onImageError = () => {
-//     setImage(`${imageDir}/common/unknown_person.jpg`)
-//   }
-
-//   return (
-//     <Card
-//       onClick={() => {
-//         if (link) window.open(link, '_blank')
-//       }}
-//       className={styles.alumni}
-//       key={name}
-//     >
-//       <div className={styles.image}>
-//         <img alt={name} src={image} onError={onImageError} />
-//       </div>
-
-//       <p className={styles.name}>{name}</p>
-//       <p className={styles.role}>{role}</p>
-//     </Card>
-//   )
-// }
 
 const Alumni: NextPage<{ data: MetaData[] }> = ({ data }) => (
   <div className={`container-sm ${styles.pageContainer}`}>
