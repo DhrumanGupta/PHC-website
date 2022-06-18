@@ -20,6 +20,7 @@ interface RawFrontMatter {
   description: string
   source: string
   demo: string
+  authors: string[]
 }
 
 interface MetaData extends FrontMatter {

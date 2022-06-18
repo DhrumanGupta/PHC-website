@@ -16,6 +16,7 @@ Proud of a project you want to add? Fork the repository, and add a file in [the 
   "description": "Project Description", // Required Field
   "source": "Link for source code", // Optional Field
   "demo": "Link for demo" // Optional Field
+  "authors": ["Author 1", "Author 2"] // Optional Field
 }
 ```
 

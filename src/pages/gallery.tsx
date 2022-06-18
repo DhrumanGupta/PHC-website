@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps<{ data: MetaData[] }> = async (
   }
 }
 
-const Alumni: NextPage<{ data: MetaData[] }> = ({ data }) => (
+const Gallery: NextPage<{ data: MetaData[] }> = ({ data }) => (
   <div className={`container-sm ${styles.pageContainer}`}>
     <MetaDecorator
       title={'Gallery'}
@@ -37,6 +37,13 @@ const Alumni: NextPage<{ data: MetaData[] }> = ({ data }) => (
         // @ts-ignore
         <Card className="!m-0" key={blogData.slug}>
           <h3 className="text-lg lg:text-xl">{blogData.title}</h3>
+          {blogData.authors && <h4 className="text-lg lg:text-l">By {
+              blogData.authors.map((author, index)=>
+                <span key={index}>
+                  <b>{author + ((index !== blogData.authors.length-1 && blogData.authors.length>2) ? ", " : " ")}</b>
+                  {index===blogData.authors.length-2 && blogData.authors.length > 1 && "and "}
+                </span>)
+            }</h4> }
           <p>{blogData.description}</p>
           <span className="flex gap-3 mt-3">
             {blogData.source && (
@@ -81,4 +88,4 @@ const Alumni: NextPage<{ data: MetaData[] }> = ({ data }) => (
   </div>
 )
 
-export default Alumni
+export default Gallery
