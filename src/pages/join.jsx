@@ -7,18 +7,6 @@ import { ApiRoutes } from '../data/Routes'
 import { BsFillInfoCircleFill } from 'react-icons/bs'
 import Tooltip from '../components/UI/Tooltip'
 
-const onJoin = () => {
-  if (typeof window !== 'undefined') {
-    localStorage.setItem('emailSent', 'true')
-  }
-}
-
-const hasJoined = () => {
-  return Boolean(
-    typeof window !== 'undefined' && localStorage.getItem('emailSent')
-  )
-}
-
 function Join() {
   const [status, setStatus] = useState({
     error: false,
@@ -34,10 +22,6 @@ function Join() {
   const submit = async (event) => {
     // stop reload
     event.preventDefault()
-
-    if (hasJoined()) {
-      return
-    }
 
     const email = emailRef.current.value
     const isValid = validPathwaysEmail(email)
@@ -61,7 +45,6 @@ function Join() {
         message: 'Email sent!',
         isUserError: false,
       })
-      onJoin()
     } catch (err) {
       console.log()
       setStatus({
@@ -129,9 +112,9 @@ function Join() {
           />
 
           <button
-            disabled={inProgress || status.success || hasJoined()}
+            disabled={inProgress || status.success}
             className={`inline-flex items-center justify-center mt-2 block px-6 py-3 text-sm md:text-lg transition-colors duration-300 rounded-lg shadow-md text-white w-full ${
-              inProgress || status.success || hasJoined()
+              inProgress || status.success
                 ? 'bg-gray-400 shadow-gray-400/30 hover:cursor-not-allowed'
                 : 'bg-orange-500 hover:bg-red-500 shadow-red-400/30'
             }`}
