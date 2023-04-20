@@ -1,4 +1,19 @@
 export const alumni = [
+    {
+    year: '2021',
+    members: [
+      {
+        name: 'Dhruman Gupta',
+        role: 'President',
+        link: 'https://berlm.me/',
+      },
+      {
+        name: "Kshitij Bhatia",
+        role: "Vice President",
+        link: "https://github.com/PreciousWarrior"
+      }
+    ],
+  },
   {
     year: '2021',
     members: [
