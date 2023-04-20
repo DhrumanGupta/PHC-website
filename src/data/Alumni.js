@@ -1,6 +1,6 @@
 export const alumni = [
     {
-    year: '2021',
+    year: '2022',
     members: [
       {
         name: 'Dhruman Gupta',
