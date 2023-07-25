@@ -20,7 +20,7 @@ export const alumni = [
       {
         name: 'Vikramaditya Jaisingh',
         role: 'President',
-        link: 'https://github.com/TheVikJ',
+        link: 'https://viks.space',
       },
       {
         name: 'Dhruman Gupta',
@@ -40,7 +40,7 @@ export const alumni = [
       {
         name: 'Vikramaditya Jaisingh',
         role: 'Vice President',
-        link: 'https://github.com/TheVikJ',
+        link: 'https://viks.space',
       },
     ],
   },
